@@ -43,3 +43,31 @@
 .nav__item:hover {
   color: var(--primary-color);
 }
+
+.content1 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.content1__header {
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 2rem;
+  color: #000;
+  background-color: var(--primary-color);
+}
+
+.content1__imgs {
+  display: flex;
+  gap: 4rem;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.content1__img {
+  width: 20rem;
+  height: 20rem;
+}
