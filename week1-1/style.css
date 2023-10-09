@@ -44,23 +44,6 @@
   color: var(--primary-color);
 }
 
-.content1 {
-  /* position: relative; */
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.content1__header {
-  position: sticky;
-  top: 0;
-  padding: 1rem;
-  border-radius: 1rem;
-  font-size: 2rem;
-  color: #000;
-  background-color: var(--primary-color);
-}
-
 .content1__imgs {
   display: flex;
   gap: 4rem;
