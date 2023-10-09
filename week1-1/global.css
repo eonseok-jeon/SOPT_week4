@@ -18,6 +18,10 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
 }
 
+/**************/
+/* scroll bar */
+/**************/
+
 *::-webkit-scrollbar {
   width: 1rem;
   height: 1rem;
@@ -35,6 +39,10 @@ body {
   border-radius: 10px;
   box-shadow: inset 0px 0px 5px white;
 }
+
+/*********************/
+/* section container */
+/*********************/
 
 .container {
   width: 100%;
