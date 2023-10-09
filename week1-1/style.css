@@ -1,6 +1,20 @@
 .header {
   padding: 5rem 0;
+  border-bottom: 0.1rem solid var(--font-color);
   font-size: 3.6rem;
   text-align: center;
-  border-bottom: 0.1rem solid var(--font-color);
+}
+
+.hero {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  padding-bottom: 1rem;
+  margin: 5rem 0;
+  overflow: auto;
+}
+
+.hero__img {
+  width: 30rem;
+  height: 40rem;
 }
