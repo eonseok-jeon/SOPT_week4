@@ -42,6 +42,7 @@
 
 .nav__item:hover {
   color: var(--primary-color);
+  font-weight: 700;
 }
 
 .content1__imgs {
@@ -157,4 +158,11 @@
   text-align: center;
   background-color: var(--bg-color);
   cursor: pointer;
+  transition: all .3s ease;
+}
+
+.top-btn:hover {
+  border: .1rem solid var(--primary-color);
+  color: var(--primary-color);
+  font-weight: 700;
 }
