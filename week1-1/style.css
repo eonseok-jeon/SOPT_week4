@@ -45,12 +45,15 @@
 }
 
 .content1 {
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
 .content1__header {
+  position: sticky;
+  top: 0;
   padding: 1rem;
   border-radius: 1rem;
   font-size: 2rem;
