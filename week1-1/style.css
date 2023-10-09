@@ -93,6 +93,7 @@
 .content2__img-right__row__item {
   width: calc((100% - 2rem) / 2);
   height: 100%;
+  object-fit: cover;
 }
 
 .content__header-3 {
