@@ -143,3 +143,18 @@
   font-size: 3.6rem;
   text-align: center;
 }
+
+.top-btn {
+  position: fixed;
+  bottom: 5rem;
+  right: 5rem;
+  width: 5rem;
+  height: 5rem;
+  border: .1rem solid var(--font-color);
+  border-radius: 50%;
+  vertical-align: middle;
+  line-height: 5rem;
+  text-align: center;
+  background-color: var(--bg-color);
+  cursor: pointer;
+}
