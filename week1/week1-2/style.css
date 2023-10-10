@@ -56,11 +56,11 @@
 }
 
 .total__detail__item__plus {
-  color: #9e9eff;
+  color: var(--blue);
 }
 
 .total__detail__item__minus {
-  color: #ff8484;
+  color: var(--red);
 }
 
 .detail {
@@ -116,4 +116,63 @@
   color: var(--bg-color);
   background-color: var(--primary-color);
   cursor: pointer;
+}
+
+.detail__list {
+  width: 100%;
+  height: calc(100vh - 45.6rem);
+  padding: 3rem;
+  overflow: auto;
+}
+
+.detail__list::-webkit-scrollbar {
+  display: none;
+}
+
+.detail__list__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 1rem;
+  color: var(--bg-color);
+  background-color: var(--primary-color);
+}
+
+.detail__list__item:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.detail__list__item::after {
+  position: absolute;
+  top: .2rem;
+  right: .6rem;
+  content: 'x';
+  cursor: pointer;
+}
+
+.detail__list__item__category {
+  width: 10%;
+}
+
+.detail__list__item__content {
+  width: 75%;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.detail__list__item__price {
+  width: 15%;
+  font-weight: 600;
+  text-align: end;
+}
+
+.income {
+  color: var(--blue);
+}
+
+.spending {
+  color: var(--red);
 }
