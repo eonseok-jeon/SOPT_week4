@@ -29,7 +29,7 @@ body {
 
 *::-webkit-scrollbar-thumb {
   background-color: var(--bg-color);
-  border: .1rem solid transparent;
+  border: 0.1rem solid transparent;
   background-clip: padding-box;
   border-radius: 10px;
 }
@@ -68,4 +68,5 @@ body {
   font-size: 2rem;
   color: var(--bg-color);
   background-color: var(--primary-color);
+  z-index: 100;
 }
