@@ -120,9 +120,9 @@
 
 .detail__list {
   width: 100%;
-  height: calc(100vh - 50.6rem);
+  height: calc(100vh - 53.6rem);
   margin-top: 3rem;
-  padding: 0 3rem 3rem;
+  padding: 0 3rem;
   overflow: auto;
 }
 
