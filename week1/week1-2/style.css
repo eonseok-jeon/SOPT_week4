@@ -18,11 +18,19 @@
   text-align: center;
 }
 
-.total__title {
+.total__sum {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.total__sum__title {
   font-size: 2.2rem;
 }
 
-.total__amount {
+.total__sum__amount {
   margin-bottom: 1rem;
   font-size: 3rem;
   font-weight: 700;
@@ -242,11 +250,6 @@
   background-color: #888;
 }
 
-/* width 800px 이상 height 750px 이하 */
-@media screen and (max-height: 46.875em) and (min-width: 50rem) {
-
-}
-
 /* width 450px 이하 */
 @media screen and (max-width: 28.125em) {
   .header {
@@ -259,11 +262,11 @@
     margin: 2rem auto;
   }
 
-  .total__title {
+  .total__sum__title {
     font-size: 2rem;
   }
 
-  .total__amount {
+  .total__sum__amount {
     margin-bottom: 0;
     font-size: 2.4rem;
   }
