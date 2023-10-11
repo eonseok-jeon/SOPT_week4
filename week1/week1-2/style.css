@@ -273,4 +273,20 @@
     padding: 0 3rem;
     margin-top: 1.5rem;
   }
+  
+  .detail__list__item {
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1rem;
+  }
+
+  .detail__list__item__category {
+    text-align: center;
+  }
+
+  .detail__list__item__history {
+    flex-direction: column;
+    gap: .5rem;
+    justify-content: center;
+  }
 }
