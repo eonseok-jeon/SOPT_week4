@@ -242,7 +242,12 @@
   background-color: #888;
 }
 
-/* 450px */
+/* width 800px 이상 height 750px 이하 */
+@media screen and (max-height: 46.875em) and (min-width: 50rem) {
+
+}
+
+/* width 450px 이하 */
 @media screen and (max-width: 28.125em) {
   .header {
     font-size: 2.4rem;
