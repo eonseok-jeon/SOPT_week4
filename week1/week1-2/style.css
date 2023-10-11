@@ -223,3 +223,54 @@
 .footer__btn:active {
   background-color: #333;
 }
+
+/* 450px */
+@media screen and (max-width: 28.125em) {
+  .header {
+    font-size: 2.4rem;
+    padding: .5rem;
+  }
+
+  .total {
+    padding: 1rem 0;
+    margin: 2rem auto;
+  }
+
+  .total__title {
+    font-size: 2rem;
+  }
+
+  .total__amount {
+    margin-bottom: 0;
+    font-size: 2.4rem;
+  }
+
+  .total__detail {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .total__detail__item div {
+    width: 1.6rem;
+    height: 1.6rem;
+    line-height: 1.6rem;
+  }
+  
+  .total__detail__item p {
+    font-size: 1.6rem;
+  }
+
+  .detail {
+    padding: 1.5rem 0;
+  }
+
+  .detail__header {
+    padding: 1rem 2rem;
+  }
+
+  .detail__list {
+    height: calc(100vh - 39.2rem);
+    padding: 0 3rem;
+    margin-top: 1.5rem;
+  }
+}
