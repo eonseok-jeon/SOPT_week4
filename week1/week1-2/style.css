@@ -162,6 +162,9 @@
   width: 70%;
   font-size: 1.8rem;
   font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .detail__list__item__price {
