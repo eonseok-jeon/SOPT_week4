@@ -154,11 +154,11 @@
 }
 
 .detail__list__item__category {
-  width: 10%;
+  width: 15%;
 }
 
 .detail__list__item__content {
-  width: 75%;
+  width: 70%;
   font-size: 1.8rem;
   font-weight: 600;
 }
