@@ -229,6 +229,7 @@
   text-align: center;
   color: var(--bg-color);
   cursor: pointer;
+  transition: all .3s ease;
 }
 
 .footer__btn:hover {
