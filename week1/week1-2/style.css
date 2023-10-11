@@ -106,6 +106,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .detail__header__sort__item input {
@@ -131,7 +132,6 @@
 .detail__header__sort__item label {
   position: absolute;
   color: var(--bg-color);
-  cursor: pointer;
 }
 
 .detail__list {
