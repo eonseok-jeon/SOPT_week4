@@ -250,6 +250,63 @@
   background-color: #888;
 }
 
+/* width 800px 이상 height 750px 이하 */
+@media screen and (max-height: 46.875em) and (min-width: 50rem) {
+  .header {
+    font-size: 2.4rem;
+    padding: .5rem;
+  }
+
+  .total {
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 2rem 0;
+    margin: 2rem auto;
+  }
+
+  .total__sum {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .total__sum__title {
+    font-size: 2rem;
+  }
+
+  .total__sum__amount {
+    margin-bottom: 0;
+    font-size: 2.4rem;
+  }
+
+  .total__detail__item div {
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+  }
+  
+  .total__detail__item p {
+    font-size: 2rem;
+  }
+
+  .detail {
+    padding: 1.5rem 0;
+  }
+
+  .detail__header {
+    padding: 1rem 2rem;
+  }
+
+  .detail__list {
+    height: calc(100vh - 32rem);
+    padding: 0 3rem;
+    margin-top: 1.5rem;
+  }
+  
+  .detail__list__item__category {
+    text-align: center;
+  }
+}
+
 /* width 450px 이하 */
 @media screen and (max-width: 28.125em) {
   .header {
