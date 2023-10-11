@@ -102,19 +102,35 @@
 }
 
 .detail__header__sort__item {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.detail__header__sort__item label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: .1em 1rem;
+.detail__header__sort__item input {
+  width: 4.8rem;
+  height: 2.2rem;
   border-radius: .5rem;
-  color: var(--bg-color);
+  background-color: var(--font-color);
+  transition: all .3s ease;
+}
+
+.detail__header__sort__item input:hover {
+  background-color: #bbb;
+}
+
+.detail__header__sort__item input:checked {
   background-color: var(--primary-color);
+}
+
+.detail__header__sort__item input:checked:hover {
+  background-color: #98d52d;
+}
+
+.detail__header__sort__item label {
+  position: absolute;
+  color: var(--bg-color);
   cursor: pointer;
 }
 
