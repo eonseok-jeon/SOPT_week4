@@ -133,6 +133,7 @@
 .detail__list__item {
   position: relative;
   display: flex;
+  gap: 1rem;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -155,11 +156,18 @@
 }
 
 .detail__list__item__category {
-  width: 15%;
+  min-width: 6rem;
 }
 
-.detail__list__item__content {
-  width: 70%;
+.detail__list__item__history {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 6rem);
+}
+
+.detail__list__item__history__content {
   font-size: 1.8rem;
   font-weight: 600;
   text-overflow: ellipsis;
@@ -167,8 +175,7 @@
   overflow: hidden;
 }
 
-.detail__list__item__price {
-  width: 15%;
+.detail__list__item__history__price {
   font-weight: 600;
   text-align: end;
 }
