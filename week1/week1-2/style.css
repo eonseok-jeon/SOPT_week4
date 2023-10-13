@@ -185,13 +185,14 @@
 
 .detail__list__item__history {
   display: flex;
-  gap: 1rem;
   align-items: center;
   justify-content: space-between;
   width: calc(100% - 6rem);
+  border: 1px solid blue;
 }
 
 .detail__list__item__history__content {
+  width: 100%;
   font-size: 1.8rem;
   font-weight: 600;
   text-overflow: ellipsis;
@@ -200,6 +201,7 @@
 }
 
 .detail__list__item__history__price {
+  border: 1px solid red;
   font-weight: 600;
   text-align: end;
 }
