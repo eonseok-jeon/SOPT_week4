@@ -37,12 +37,17 @@
 }
 
 .nav__item {
-  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  transition-property: color, font-weight, text-decoration;
+  transition-duration: .3s;
+  transition-timing-function: ease;
 }
 
 .nav__item:hover {
   color: var(--primary-color);
   font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
 }
 
 .content1__imgs {
