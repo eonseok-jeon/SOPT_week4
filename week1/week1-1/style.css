@@ -85,7 +85,7 @@
 .content2__img-left {
   width: calc((100% - 2rem) / 2);
   height: 100%;
-  transition: all 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
 .content2__img-right {
@@ -103,7 +103,7 @@
   width: calc((100% - 2rem) / 2);
   height: 100%;
   object-fit: cover;
-  transition: all 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
 .content__header-3 {
