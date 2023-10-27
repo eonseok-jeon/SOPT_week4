@@ -76,6 +76,53 @@ const useSpendingSelect = function updateSelectByType() {
   SPENDING_SELECT.classList.add('add-list__input__selected');
 }
 
+const showList = function showListToScreen(category, location, price, type) {
+  const EACH_HISTORY = document.createElement('li');
+  const HISTORY_CATEGORY = document.createElement('p');
+  const HISTORY_DETAIL = document.createElement('div');
+  const HISTORY_LOCATION = document.createElement('p');
+  const HISTORY_PRICE = document.createElement('p');
+  const HISTORY_DELETE = document.createElement('button');
+  
+  EACH_HISTORY.classList.add('detail__list__item');
+  TOTAL_HISTORY.appendChild(EACH_HISTORY);
+  
+  HISTORY_CATEGORY.classList.add('detail__list__item__category');
+  HISTORY_CATEGORY.textContent = category;
+  EACH_HISTORY.appendChild(HISTORY_CATEGORY);
+  
+  HISTORY_DETAIL.classList.add('detail__list__item__history');
+  EACH_HISTORY.appendChild(HISTORY_DETAIL);
+  
+  HISTORY_LOCATION.classList.add('detail__list__item__history__content');
+  HISTORY_LOCATION.textContent = location;
+  HISTORY_DETAIL.appendChild(HISTORY_LOCATION);
+  
+  HISTORY_PRICE.classList.add('detail__list__item__history__price');
+  HISTORY_DETAIL.appendChild(HISTORY_PRICE);
+  
+  HISTORY_DELETE.classList.add('detail__list__item__delete');
+  HISTORY_DELETE.textContent = 'x';
+  EACH_HISTORY.appendChild(HISTORY_DELETE);
+  HISTORY_DELETE.addEventListener('click', deleteList);
+
+  if (type === '수입') {
+    totalBalance += price;
+    totalIncome += price;
+    HISTORY_PRICE.textContent = price.toLocaleString('ko-KR');
+    HISTORY_PRICE.classList.add('income');
+  } else if (type === '지출') {
+    totalBalance -= price;
+    totalSpending += price;
+    HISTORY_PRICE.textContent = (price * -1).toLocaleString('ko-KR');
+    HISTORY_PRICE.classList.add('spending');
+  }
+
+  TOTAL_BALANCE.textContent = totalBalance.toLocaleString('ko-KR');
+  TOTAL_INCOME.textContent = totalIncome.toLocaleString('ko-KR');
+  TOTAL_SPENDING.textContent = totalSpending.toLocaleString('ko-KR');
+}
+
 const saveInfo = function saveEnteredInfoToList() {
   const SELECTED_TYPE = INCOME_RADIO.checked ? '수입' : '지출';
   const SELECTED_CATEGORY = SELECTED_TYPE === '수입' ? INCOME_SELECT.value : SPENDING_SELECT.value;
@@ -91,50 +138,7 @@ const saveInfo = function saveEnteredInfoToList() {
 
   HISTORY_LIST.push(NEW_LIST);
 
-  const EACH_HISTORY = document.createElement('li');
-  const HISTORY_CATEGORY = document.createElement('p');
-  const HISTORY_DETAIL = document.createElement('div');
-  const HISTORY_LOCATION = document.createElement('p');
-  const HISTORY_PRICE = document.createElement('p');
-  const HISTORY_DELETE = document.createElement('button');
-  
-  EACH_HISTORY.classList.add('detail__list__item');
-  TOTAL_HISTORY.appendChild(EACH_HISTORY);
-  
-  HISTORY_CATEGORY.classList.add('detail__list__item__category');
-  HISTORY_CATEGORY.textContent = SELECTED_CATEGORY;
-  EACH_HISTORY.appendChild(HISTORY_CATEGORY);
-  
-  HISTORY_DETAIL.classList.add('detail__list__item__history');
-  EACH_HISTORY.appendChild(HISTORY_DETAIL);
-  
-  HISTORY_LOCATION.classList.add('detail__list__item__history__content');
-  HISTORY_LOCATION.textContent = LOCATION;
-  HISTORY_DETAIL.appendChild(HISTORY_LOCATION);
-  
-  HISTORY_PRICE.classList.add('detail__list__item__history__price');
-  HISTORY_DETAIL.appendChild(HISTORY_PRICE);
-  
-  HISTORY_DELETE.classList.add('detail__list__item__delete');
-  HISTORY_DELETE.textContent = 'x';
-  EACH_HISTORY.appendChild(HISTORY_DELETE);
-  HISTORY_DELETE.addEventListener('click', deleteList);
-
-  if (SELECTED_TYPE === '수입') {
-    totalBalance += AMOUNT;
-    totalIncome += AMOUNT;
-    HISTORY_PRICE.textContent = AMOUNT.toLocaleString('ko-KR');
-    HISTORY_PRICE.classList.add('income');
-  } else if (SELECTED_TYPE === '지출') {
-    totalBalance -= AMOUNT;
-    totalSpending += AMOUNT;
-    HISTORY_PRICE.textContent = (AMOUNT * -1).toLocaleString('ko-KR');
-    HISTORY_PRICE.classList.add('spending');
-  }
-
-  TOTAL_BALANCE.textContent = totalBalance.toLocaleString('ko-KR');
-  TOTAL_INCOME.textContent = totalIncome.toLocaleString('ko-KR');
-  TOTAL_SPENDING.textContent = totalSpending.toLocaleString('ko-KR');
+  showList(SELECTED_CATEGORY, LOCATION, AMOUNT, SELECTED_TYPE);
 
   INCOME_RADIO.checked = true;
   INCOME_SELECT.value = '월급';
@@ -183,54 +187,8 @@ const main = () => {
   SAVE_INFO_BUTTON.addEventListener('click', saveInfo);
 
   HISTORY_LIST.forEach(({ category, location, price, type }) => {
-    const EACH_HISTORY = document.createElement('li');
-    const HISTORY_CATEGORY = document.createElement('p');
-    const HISTORY_DETAIL = document.createElement('div');
-    const HISTORY_LOCATION = document.createElement('p');
-    const HISTORY_PRICE = document.createElement('p');
-    const HISTORY_DELETE = document.createElement('button');
-    
-    EACH_HISTORY.classList.add('detail__list__item');
-    TOTAL_HISTORY.appendChild(EACH_HISTORY);
-    
-    HISTORY_CATEGORY.classList.add('detail__list__item__category');
-    HISTORY_CATEGORY.textContent = category;
-    EACH_HISTORY.appendChild(HISTORY_CATEGORY);
-    
-    HISTORY_DETAIL.classList.add('detail__list__item__history');
-    EACH_HISTORY.appendChild(HISTORY_DETAIL);
-    
-    HISTORY_LOCATION.classList.add('detail__list__item__history__content');
-    HISTORY_LOCATION.textContent = location;
-    HISTORY_DETAIL.appendChild(HISTORY_LOCATION);
-    
-    HISTORY_PRICE.classList.add('detail__list__item__history__price');
-    HISTORY_DETAIL.appendChild(HISTORY_PRICE);
-    
-    HISTORY_DELETE.classList.add('detail__list__item__delete');
-    HISTORY_DELETE.textContent = 'x';
-    EACH_HISTORY.appendChild(HISTORY_DELETE);
-    HISTORY_DELETE.addEventListener('click', deleteList);
-    
-    if (type === '수입') {
-      totalBalance += price;
-      totalIncome += price;
-      HISTORY_PRICE.textContent = price.toLocaleString('ko-KR');
-      
-      return HISTORY_PRICE.classList.add('income');
-    }
-    if (type === '지출') {
-      totalBalance -= price;
-      totalSpending += price;
-      HISTORY_PRICE.textContent = (price * -1).toLocaleString('ko-KR');
-      
-      return HISTORY_PRICE.classList.add('spending');
-    }
-  })
-  
-  TOTAL_BALANCE.textContent = totalBalance.toLocaleString('ko-KR');
-  TOTAL_INCOME.textContent = totalIncome.toLocaleString('ko-KR');
-  TOTAL_SPENDING.textContent = totalSpending.toLocaleString('ko-KR');
+    showList(category, location, price, type);
+  });
 
   ADD_BUTTON.addEventListener('click', openModal);
   CLOSE_BUTTON.addEventListener('click', closeModal);
