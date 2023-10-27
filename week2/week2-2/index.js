@@ -28,18 +28,16 @@ const HISTORY_LIST = [
 
 const TOTAL_HISTORY = document.querySelector('.detail__list');
 
-let totalBalance = INIT_BALANCE; // 굳이 왜 이렇게?
-let totalIncome = 0;
-let totalSpending = 0;
-
 const TOTAL_BALANCE = document.querySelector('.total__sum__amount');
 const TOTAL_INCOME = document.querySelector('.total__detail__item__plus__num');
 const TOTAL_SPENDING = document.querySelector('.total__detail__item__minus__num');
 
 const INCOME_CHECK_BOX = document.getElementById('income');
 const SPENDING_CHECK_BOX = document.getElementById('spending');
-// const TOTAL_HISTORY = document.querySelector('.detail__list');
 
+let totalBalance = INIT_BALANCE; // 굳이 왜 이렇게?
+let totalIncome = 0;
+let totalSpending = 0;
 
 const updateHistory = function updateHistoryListWithCheckBox() {
   const SHOW_INCOME = INCOME_CHECK_BOX.checked;
@@ -66,26 +64,32 @@ const main = () => {
   
   HISTORY_LIST.forEach(({ category, location, price, type }) => {
     const EACH_HISTORY = document.createElement('li');
+    const HISTORY_CATEGORY = document.createElement('p');
+    const HISTORY_DETAIL = document.createElement('div');
+    const HISTORY_LOCATION = document.createElement('p');
+    const HISTORY_PRICE = document.createElement('p');
+    const HISTORY_DELETE = document.createElement('button');
+
     EACH_HISTORY.classList.add('detail__list__item');
     TOTAL_HISTORY.appendChild(EACH_HISTORY);
     
-    const HISTORY_CATEGORY = document.createElement('p');
     HISTORY_CATEGORY.classList.add('detail__list__item__category');
     HISTORY_CATEGORY.textContent = category;
     EACH_HISTORY.appendChild(HISTORY_CATEGORY);
     
-    const HISTORY_DETAIL = document.createElement('div');
     HISTORY_DETAIL.classList.add('detail__list__item__history');
     EACH_HISTORY.appendChild(HISTORY_DETAIL);
     
-    const HISTORY_LOCATION = document.createElement('p');
     HISTORY_LOCATION.classList.add('detail__list__item__history__content');
     HISTORY_LOCATION.textContent = location;
     HISTORY_DETAIL.appendChild(HISTORY_LOCATION);
     
-    const HISTORY_PRICE = document.createElement('p');
     HISTORY_PRICE.classList.add('detail__list__item__history__price');
     HISTORY_DETAIL.appendChild(HISTORY_PRICE);
+    
+    HISTORY_DELETE.classList.add('detail__list__item__delete');
+    HISTORY_DELETE.textContent = 'x';
+    EACH_HISTORY.appendChild(HISTORY_DELETE);
     
     if (type === '수입') {
       totalBalance += price;
