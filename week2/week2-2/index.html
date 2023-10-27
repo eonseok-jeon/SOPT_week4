@@ -53,6 +53,42 @@
         </ul>
       </section>
     </main>
+    <section class="add-list">
+      <h2>내역 추가</h2>
+      <div class="detail__header__sort">
+        <div class="detail__header__sort__item">
+          <input id="add_income" type="radio" name="add_list" checked />
+          <label for="add_income">수입</label>
+        </div>
+        <div class="detail__header__sort__item">
+          <input id="add_spending" type="radio" name="add_list" />
+          <label for="add_spending">지출</label>
+        </div>
+      </div>
+      <div class="add-list__inputs">
+        <div class="add-list__input">
+          <label>종류</label>
+          <select id="select-income" class="add-list__input__selected">
+            <option>월급</option>
+            <option>주움</option>
+          </select>
+          <select id="select-spending">
+            <option>쇼핑</option>
+            <option>기부</option>
+          </select>
+        </div>
+        <div class="add-list__input">
+          <label>금액</label>
+          <input type="number" min="0" max="100000000" />
+        </div>
+        <div class="add-list__input">
+          <label>내용</label>
+          <input type="text" minlength="1" maxlength="30" />
+        </div>
+      </div>
+      <button class="add-list__button">저장하기</button>
+      <button class="add-list__button">닫기</button>
+    </section>
     <footer class="footer">
       <button class="footer__btn">+</button>
     </footer>
