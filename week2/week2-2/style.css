@@ -171,13 +171,6 @@
   margin-bottom: 2rem;
 }
 
-.detail__list__item__delete {
-  position: absolute;
-  top: .2rem;
-  right: .6rem;
-  cursor: pointer;
-}
-
 .detail__list__item__category {
   min-width: 6rem;
 }
@@ -201,6 +194,13 @@
 .detail__list__item__history__price {
   font-weight: 600;
   text-align: end;
+}
+
+.detail__list__item__delete {
+  position: absolute;
+  top: .2rem;
+  right: .6rem;
+  cursor: pointer;
 }
 
 .income {

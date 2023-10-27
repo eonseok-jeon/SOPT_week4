@@ -31,6 +31,7 @@ const TOTAL_HISTORY = document.querySelector('.detail__list');
 const TOTAL_BALANCE = document.querySelector('.total__sum__amount');
 const TOTAL_INCOME = document.querySelector('.total__detail__item__plus__num');
 const TOTAL_SPENDING = document.querySelector('.total__detail__item__minus__num');
+const DELETE_BUTTON = document.querySelector('.detail__list__item__delete');
 
 const INCOME_CHECK_BOX = document.getElementById('income');
 const SPENDING_CHECK_BOX = document.getElementById('spending');
@@ -58,10 +59,32 @@ const updateHistory = function updateHistoryListWithCheckBox() {
   });
 }
 
+const deleteList = function deleteOneListItemWithXButton(event) {
+  const DELETE_ITEM = event.target.closest('.detail__list__item');
+  if (DELETE_ITEM) {
+    const HISTORY_PRICE = DELETE_ITEM.querySelector('.detail__list__item__history__price');
+    const INCOME = HISTORY_PRICE.classList.contains('income');
+
+    if (!!INCOME) {
+      totalBalance -= parseFloat(HISTORY_PRICE.textContent.replace(/[^0-9.-]+/g, ''));
+      totalIncome -= parseFloat(HISTORY_PRICE.textContent.replace(/[^0-9.-]+/g, ''));
+    } else {
+      totalBalance += parseFloat(HISTORY_PRICE.textContent.replace(/[^0-9.-]+/g, ''));
+      totalSpending += parseFloat(HISTORY_PRICE.textContent.replace(/[^0-9.-]+/g, ''));
+    }
+
+    TOTAL_BALANCE.textContent = totalBalance.toLocaleString('ko-KR');
+    TOTAL_INCOME.textContent = totalIncome.toLocaleString('ko-KR');
+    TOTAL_SPENDING.textContent = totalSpending.toLocaleString('ko-KR');
+
+    DELETE_ITEM.remove();
+  }
+}
+
 const main = () => {
   INCOME_CHECK_BOX.addEventListener('change', updateHistory);
   SPENDING_CHECK_BOX.addEventListener('change', updateHistory);
-  
+
   HISTORY_LIST.forEach(({ category, location, price, type }) => {
     const EACH_HISTORY = document.createElement('li');
     const HISTORY_CATEGORY = document.createElement('p');
@@ -69,7 +92,7 @@ const main = () => {
     const HISTORY_LOCATION = document.createElement('p');
     const HISTORY_PRICE = document.createElement('p');
     const HISTORY_DELETE = document.createElement('button');
-
+    
     EACH_HISTORY.classList.add('detail__list__item');
     TOTAL_HISTORY.appendChild(EACH_HISTORY);
     
@@ -90,6 +113,7 @@ const main = () => {
     HISTORY_DELETE.classList.add('detail__list__item__delete');
     HISTORY_DELETE.textContent = 'x';
     EACH_HISTORY.appendChild(HISTORY_DELETE);
+    HISTORY_DELETE.addEventListener('click', deleteList);
     
     if (type === '수입') {
       totalBalance += price;
@@ -106,10 +130,11 @@ const main = () => {
       return HISTORY_PRICE.classList.add('spending');
     }
   })
-
+  
   TOTAL_BALANCE.textContent = totalBalance.toLocaleString('ko-KR');
   TOTAL_INCOME.textContent = totalIncome.toLocaleString('ko-KR');
   TOTAL_SPENDING.textContent = totalSpending.toLocaleString('ko-KR');
+
 }
 
 main();
