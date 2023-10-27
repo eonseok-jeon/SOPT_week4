@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="variables.css" />
+    <title>빵빵이의 가계부</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>빵빵이의 가계부</h1>
+    </header>
+    <main>
+      <section class="total">
+        <div class="total__sum">
+          <p class="total__sum__title">나의 자산</p>
+          <p class="total__sum__amount">262,105</p>
+        </div>
+        <div class="total__detail">
+          <div class="total__detail__item">
+            <div class="total__detail__item__plus">+</div>
+            <p class="total__detail__item__plus">300,105</p>
+          </div>
+          <div class="total__detail__item"> 
+            <div class="total__detail__item__minus">-</div>
+            <p class="total__detail__item__minus">38,000</p>
+          </div>
+        </div>
+      </section>
+      <section class="detail">
+        <div class="detail__date">
+          <button>&lt;</button>
+          <p>10월 1일</p>
+          <button>&gt;</button>
+        </div>
+        <div class="detail__header">
+          <h2 class="detail__header__title">내역 리스트</h2>
+          <div class="detail__header__sort">
+            <div class="detail__header__sort__item">
+              <input id="income" type="checkbox" name="income" checked />
+              <label for="income">수입</label>
+            </div>
+            <div class="detail__header__sort__item">
+              <input id="spending" type="checkbox" name="spending" checked />
+              <label for="spending">지출</label>
+            </div>
+          </div>
+        </div>
+        <div class="detail__list">
+          <article class="detail__list__item">
+            <p class="detail__list__item__category">식비</p>
+            <div class="detail__list__item__history">
+              <p class="detail__list__item__history__content">버거킹 고양스타필드점</p>
+              <p class="detail__list__item__history__price spending">-10,800</p>
+            </div>
+          </article>
+          <article class="detail__list__item">
+            <p class="detail__list__item__category">취미</p>
+            <div class="detail__list__item__history">
+              <p class="detail__list__item__history__content">더클라임 강남점</p>
+              <p class="detail__list__item__history__price spending">-23,000</p>
+            </div>
+          </article>
+          <article class="detail__list__item">
+            <p class="detail__list__item__category">월급</p>
+            <div class="detail__list__item__history">
+              <p class="detail__list__item__history__content">CU 고양원당점</p>
+              <p class="detail__list__item__history__price income">+300,000</p>
+            </div>
+          </article>
+          <article class="detail__list__item">
+            <p class="detail__list__item__category">쇼핑</p>
+            <div class="detail__list__item__history">
+              <p class="detail__list__item__history__content">쿠팡</p>
+              <p class="detail__list__item__history__price spending">-4,200</p>
+            </div>
+          </article>
+          <article class="detail__list__item">
+            <p class="detail__list__item__category">이자</p>
+            <div class="detail__list__item__history">
+              <p class="detail__list__item__history__content">KB 국민은행</p>
+              <p class="detail__list__item__history__price income">+105</p>
+            </div>
+          </article>
+          <article class="detail__list__item">
+            <p class="detail__list__item__category">복권</p>
+            <div class="detail__list__item__history">
+              <p class="detail__list__item__history__content">복권 당첨</p>
+              <p class="detail__list__item__history__price income">+210,000,000</p>
+            </div>
+          </article>
+          <article class="detail__list__item">
+            <p class="detail__list__item__category">비트코인</p>
+            <div class="detail__list__item__history">
+              <p class="detail__list__item__history__content">떡락</p>
+              <p class="detail__list__item__history__price spending">-210,000,000</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <button class="footer__btn">+</button>
+    </footer>
+  </body>
+</html>
