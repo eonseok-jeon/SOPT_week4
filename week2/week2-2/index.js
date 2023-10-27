@@ -37,6 +37,10 @@ const ADD_BUTTON = document.querySelector('.footer__btn');
 const INCOME_CHECK_BOX = document.getElementById('income');
 const SPENDING_CHECK_BOX = document.getElementById('spending');
 const CLOSE_BUTTON = document.getElementById('close-modal');
+const INCOME_RADIO = document.getElementById('add-income');
+const SPENDING_RADIO = document.getElementById('add-spending');
+const INCOME_SELECT = document.getElementById('select-income');
+const SPENDING_SELECT = document.getElementById('select-spending');
 
 let totalBalance = INIT_BALANCE; // 굳이 왜 이렇게?
 let totalIncome = 0;
@@ -49,16 +53,25 @@ const updateHistory = function updateHistoryListWithCheckBox() {
   const EACH_HISTORY = document.querySelectorAll('.detail__list__item');
   
   EACH_HISTORY.forEach((item) => {
-    const type = item.querySelector('.detail__list__item__history__price').classList.contains('income')
+    const SELECTED_TYPE = item.querySelector('.detail__list__item__history__price').classList.contains('income')
     ? '수입'
     : '지출';
     
-    if ((SHOW_INCOME && type === '수입') || (SHOW_SPENDING && type === '지출')) {
+    if ((SHOW_INCOME && SELECTED_TYPE === '수입') || (SHOW_SPENDING && SELECTED_TYPE === '지출')) {
       item.style.display = 'flex';
     } else {
       item.style.display = 'none';
     }
   });
+}
+
+const useIncomeSelect = function updateSelectByType() {
+  INCOME_SELECT.classList.add('add-list__input__selected');
+  SPENDING_SELECT.classList.remove('add-list__input__selected');
+}
+const useSpendingSelect = function updateSelectByType() {
+  INCOME_SELECT.classList.remove('add-list__input__selected');
+  SPENDING_SELECT.classList.add('add-list__input__selected');
 }
 
 const deleteList = function deleteOneListItemWithXButton(event) {
@@ -96,6 +109,8 @@ const closeModal = function openModalToAddHistoryList() {
 const main = () => {
   INCOME_CHECK_BOX.addEventListener('change', updateHistory);
   SPENDING_CHECK_BOX.addEventListener('change', updateHistory);
+  INCOME_RADIO.addEventListener('click', useIncomeSelect);
+  SPENDING_RADIO.addEventListener('click', useSpendingSelect);
 
   HISTORY_LIST.forEach(({ category, location, price, type }) => {
     const EACH_HISTORY = document.createElement('li');
