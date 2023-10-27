@@ -32,9 +32,11 @@ const TOTAL_BALANCE = document.querySelector('.total__sum__amount');
 const TOTAL_INCOME = document.querySelector('.total__detail__item__plus__num');
 const TOTAL_SPENDING = document.querySelector('.total__detail__item__minus__num');
 const DELETE_BUTTON = document.querySelector('.detail__list__item__delete');
+const ADD_BUTTON = document.querySelector('.footer__btn');
 
 const INCOME_CHECK_BOX = document.getElementById('income');
 const SPENDING_CHECK_BOX = document.getElementById('spending');
+const CLOSE_BUTTON = document.getElementById('close-modal');
 
 let totalBalance = INIT_BALANCE; // 굳이 왜 이렇게?
 let totalIncome = 0;
@@ -79,6 +81,16 @@ const deleteList = function deleteOneListItemWithXButton(event) {
 
     DELETE_ITEM.remove();
   }
+}
+
+const openModal = function openModalToAddHistoryList() {
+  const addModal = document.querySelector('.add-list');
+  addModal.style.display = 'flex';
+}
+
+const closeModal = function openModalToAddHistoryList() {
+  const addModal = document.querySelector('.add-list');
+  addModal.style.display = 'none';
 }
 
 const main = () => {
@@ -135,6 +147,8 @@ const main = () => {
   TOTAL_INCOME.textContent = totalIncome.toLocaleString('ko-KR');
   TOTAL_SPENDING.textContent = totalSpending.toLocaleString('ko-KR');
 
+  ADD_BUTTON.addEventListener('click', openModal);
+  CLOSE_BUTTON.addEventListener('click', closeModal);
 }
 
 main();
