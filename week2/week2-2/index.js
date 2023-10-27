@@ -41,6 +41,7 @@ const INCOME_RADIO = document.getElementById('add-income');
 const SPENDING_RADIO = document.getElementById('add-spending');
 const INCOME_SELECT = document.getElementById('select-income');
 const SPENDING_SELECT = document.getElementById('select-spending');
+const SAVE_INFO_BUTTON = document.getElementById('save-info');
 
 let totalBalance = INIT_BALANCE; // 굳이 왜 이렇게?
 let totalIncome = 0;
@@ -69,9 +70,77 @@ const useIncomeSelect = function updateSelectByType() {
   INCOME_SELECT.classList.add('add-list__input__selected');
   SPENDING_SELECT.classList.remove('add-list__input__selected');
 }
+
 const useSpendingSelect = function updateSelectByType() {
   INCOME_SELECT.classList.remove('add-list__input__selected');
   SPENDING_SELECT.classList.add('add-list__input__selected');
+}
+
+const saveInfo = function saveEnteredInfoToList() {
+  const SELECTED_TYPE = INCOME_RADIO.checked ? '수입' : '지출';
+  const SELECTED_CATEGORY = SELECTED_TYPE === '수입' ? INCOME_SELECT.value : SPENDING_SELECT.value;
+  const AMOUNT = parseFloat(document.querySelector('.add-list__input input[type="number"]').value);
+  const LOCATION = document.querySelector('.add-list__input input[type="text"]').value;
+
+  const NEW_LIST = {
+    category: SELECTED_CATEGORY,
+    LOCATION: LOCATION,
+    price: SELECTED_TYPE === '수입' ? AMOUNT : -AMOUNT,
+    type: SELECTED_TYPE,
+  };
+
+  HISTORY_LIST.push(NEW_LIST);
+
+  const EACH_HISTORY = document.createElement('li');
+  const HISTORY_CATEGORY = document.createElement('p');
+  const HISTORY_DETAIL = document.createElement('div');
+  const HISTORY_LOCATION = document.createElement('p');
+  const HISTORY_PRICE = document.createElement('p');
+  const HISTORY_DELETE = document.createElement('button');
+  
+  EACH_HISTORY.classList.add('detail__list__item');
+  TOTAL_HISTORY.appendChild(EACH_HISTORY);
+  
+  HISTORY_CATEGORY.classList.add('detail__list__item__category');
+  HISTORY_CATEGORY.textContent = SELECTED_CATEGORY;
+  EACH_HISTORY.appendChild(HISTORY_CATEGORY);
+  
+  HISTORY_DETAIL.classList.add('detail__list__item__history');
+  EACH_HISTORY.appendChild(HISTORY_DETAIL);
+  
+  HISTORY_LOCATION.classList.add('detail__list__item__history__content');
+  HISTORY_LOCATION.textContent = LOCATION;
+  HISTORY_DETAIL.appendChild(HISTORY_LOCATION);
+  
+  HISTORY_PRICE.classList.add('detail__list__item__history__price');
+  HISTORY_DETAIL.appendChild(HISTORY_PRICE);
+  
+  HISTORY_DELETE.classList.add('detail__list__item__delete');
+  HISTORY_DELETE.textContent = 'x';
+  EACH_HISTORY.appendChild(HISTORY_DELETE);
+  HISTORY_DELETE.addEventListener('click', deleteList);
+
+  if (SELECTED_TYPE === '수입') {
+    totalBalance += AMOUNT;
+    totalIncome += AMOUNT;
+    HISTORY_PRICE.textContent = AMOUNT.toLocaleString('ko-KR');
+    HISTORY_PRICE.classList.add('income');
+  } else if (SELECTED_TYPE === '지출') {
+    totalBalance -= AMOUNT;
+    totalSpending += AMOUNT;
+    HISTORY_PRICE.textContent = (AMOUNT * -1).toLocaleString('ko-KR');
+    HISTORY_PRICE.classList.add('spending');
+  }
+
+  TOTAL_BALANCE.textContent = totalBalance.toLocaleString('ko-KR');
+  TOTAL_INCOME.textContent = totalIncome.toLocaleString('ko-KR');
+  TOTAL_SPENDING.textContent = totalSpending.toLocaleString('ko-KR');
+
+  INCOME_RADIO.checked = true;
+  INCOME_SELECT.value = '월급';
+  SPENDING_SELECT.value = '쇼핑';
+  document.querySelector('.add-list__input input[type="number"]').value = '';
+  document.querySelector('.add-list__input input[type="text"]').value = '';
 }
 
 const deleteList = function deleteOneListItemWithXButton(event) {
@@ -111,6 +180,7 @@ const main = () => {
   SPENDING_CHECK_BOX.addEventListener('change', updateHistory);
   INCOME_RADIO.addEventListener('click', useIncomeSelect);
   SPENDING_RADIO.addEventListener('click', useSpendingSelect);
+  SAVE_INFO_BUTTON.addEventListener('click', saveInfo);
 
   HISTORY_LIST.forEach(({ category, location, price, type }) => {
     const EACH_HISTORY = document.createElement('li');
