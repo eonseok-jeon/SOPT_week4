@@ -27,6 +27,7 @@ const HISTORY_LIST = [
 ]
 
 const TOTAL_HISTORY = document.querySelector('.detail__list');
+let totalBalance = INIT_BALANCE; // 굳이 왜 이렇게?
 
 HISTORY_LIST.forEach(({ category, location, price, type }) => {
   const EACH_HISTORY = document.createElement('li');
@@ -50,6 +51,11 @@ HISTORY_LIST.forEach(({ category, location, price, type }) => {
   const HISTORY_PRICE = document.createElement('p');
   HISTORY_PRICE.classList.add('detail__list__item__history__price');
   type === '수입' ? HISTORY_PRICE.classList.add('income') : HISTORY_PRICE.classList.add('spending');
-  HISTORY_PRICE.textContent = type === '수입' ? price : (price * -1);
+  HISTORY_PRICE.textContent = type === '수입' ? price.toLocaleString('ko-KR') : (price * -1).toLocaleString('ko-KR');
   HISTORY_DETAIL.appendChild(HISTORY_PRICE);
+
+  type === '수입' ? totalBalance += price : totalBalance -= price;
 })
+
+const TOTAL_BALANCE = document.querySelector('.total__sum__amount');
+TOTAL_BALANCE.textContent = totalBalance.toLocaleString('ko-KR');
