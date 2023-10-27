@@ -140,6 +140,8 @@ const saveInfo = function saveEnteredInfoToList() {
 
   showList(SELECTED_CATEGORY, LOCATION, AMOUNT, SELECTED_TYPE);
 
+  alert('저장 성공');
+
   INCOME_RADIO.checked = true;
   INCOME_SELECT.value = '월급';
   SPENDING_SELECT.value = '쇼핑';
