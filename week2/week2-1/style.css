@@ -98,6 +98,12 @@
   font-size: 3rem;
 }
 
+.content1__img__text__description {
+  padding: 0 2rem 2rem;
+  text-align: center;
+  word-break: keep-all;
+}
+
 .content1__img__box:hover .content1__img__text {
   opacity: 1;
 }
