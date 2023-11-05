@@ -1,9 +1,6 @@
-import { useState } from 'react';
 import * as S from './style';
 
-const MainSection = () => {
-  const [selectOption, setSelectOption] = useState('');
-
+const MainSection = ({ selectOption, selectOptionHandler }) => {
   return (
     <S.MainStyle>
       <S.SubTitleStyle>원하는 추천 방식을 골라줘!</S.SubTitleStyle>
@@ -13,7 +10,7 @@ const MainSection = () => {
         {(selectOption === '' || selectOption === 'personal') && (
           <S.ArticleStyle
             onClick={() => {
-              setSelectOption('personal');
+              selectOptionHandler('personal');
             }}
           >
             <a href="#">취향대로 추천</a>
@@ -23,7 +20,7 @@ const MainSection = () => {
         {(selectOption === '' || selectOption === 'random') && (
           <S.ArticleStyle
             onClick={() => {
-              setSelectOption('random');
+              selectOptionHandler('random');
             }}
           >
             <a href="#">랜덤 추천</a>
