@@ -12,7 +12,12 @@ const MainSection = ({ selectOption, selectOptionHandler, startPick, startPickHa
           startPickHandler={startPickHandler}
         />
       )}
-      {!!startPick && <PersonalArticle />}
+      {!!startPick && (
+        <PersonalArticle
+          selectOptionHandler={selectOptionHandler}
+          startPickHandler={startPickHandler}
+        />
+      )}
     </S.MainStyle>
   );
 };

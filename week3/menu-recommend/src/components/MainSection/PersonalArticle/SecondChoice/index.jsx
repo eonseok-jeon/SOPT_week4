@@ -1,33 +1,32 @@
 import * as S from '../style';
 
-const FirstChoice = ({ selectOptionHandler, startPickHandler, nthChoiceHandler }) => {
+const SecondChoice = ({ nthChoiceHandler }) => {
   return (
     <>
-      <S.SubTitleStyle>오늘은 어떤 종류가 먹고 싶어?</S.SubTitleStyle>
-      <S.CountParagraph>1 / 3</S.CountParagraph>
+      <S.SubTitleStyle>그럼 이 중에는 뭐가 끌려?</S.SubTitleStyle>
+      <S.CountParagraph>2 / 3</S.CountParagraph>
       <S.MainSectionStyle>
         <S.ArticleStyle>
-          <a href="#">한식</a>
+          <a href="#">밥</a>
         </S.ArticleStyle>
         <S.ArticleStyle>
-          <a href="#">일식</a>
+          <a href="#">면</a>
         </S.ArticleStyle>
         <S.ArticleStyle>
-          <a href="#">중식</a>
+          <a href="#">고기</a>
         </S.ArticleStyle>
       </S.MainSectionStyle>
       <S.ButtonBox>
         <S.NextButton
           onClick={() => {
-            selectOptionHandler('');
-            startPickHandler(false);
+            nthChoiceHandler(1);
           }}
         >
           이전으로
         </S.NextButton>
         <S.NextButton
           onClick={() => {
-            nthChoiceHandler(2);
+            nthChoiceHandler(3);
           }}
         >
           다음으로
@@ -37,4 +36,4 @@ const FirstChoice = ({ selectOptionHandler, startPickHandler, nthChoiceHandler }
   );
 };
 
-export default FirstChoice;
+export default SecondChoice;
