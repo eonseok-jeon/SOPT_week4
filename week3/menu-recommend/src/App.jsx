@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 export default function App() {
   const [selectOption, setSelectOption] = useState('');
+  const [startPick, setStartPick] = useState(false);
 
   return (
     <>
@@ -14,11 +15,18 @@ export default function App() {
         selectOptionHandler={(selected) => {
           setSelectOption(selected);
         }}
+        startPickHandler={(isStart) => {
+          setStartPick(isStart);
+        }}
       />
       <MainSection
         selectOption={selectOption}
+        startPick={startPick}
         selectOptionHandler={(selected) => {
           setSelectOption(selected);
+        }}
+        startPickHandler={(isStart) => {
+          setStartPick(isStart);
         }}
       />
     </>

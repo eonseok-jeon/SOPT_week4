@@ -1,6 +1,6 @@
 import * as S from './style';
 
-const SelectArticle = ({ selectOption, selectOptionHandler }) => {
+const SelectArticle = ({ selectOption, selectOptionHandler, startPickHandler }) => {
   return (
     <>
       <S.SubTitleStyle>원하는 추천 방식을 골라줘!</S.SubTitleStyle>
@@ -28,7 +28,15 @@ const SelectArticle = ({ selectOption, selectOptionHandler }) => {
         )}
       </S.MainSectionStyle>
 
-      {selectOption !== '' && <S.StartButton>Start!</S.StartButton>}
+      {selectOption !== '' && (
+        <S.StartButton
+          onClick={() => {
+            startPickHandler(true);
+          }}
+        >
+          Start!
+        </S.StartButton>
+      )}
     </>
   );
 };

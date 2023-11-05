@@ -1,6 +1,6 @@
 import * as S from './style';
 
-const Header = ({ selectOption, selectOptionHandler }) => {
+const Header = ({ selectOption, selectOptionHandler, startPickHandler }) => {
   return (
     <S.HeaderStyle>
       <h1>🍛 오늘의 점메추 🍛</h1>
@@ -8,6 +8,7 @@ const Header = ({ selectOption, selectOptionHandler }) => {
         <S.ReStartButton
           onClick={() => {
             selectOptionHandler('');
+            startPickHandler(false);
           }}
         >
           처음으로
