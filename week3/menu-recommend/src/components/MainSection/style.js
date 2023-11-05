@@ -42,4 +42,17 @@ const ArticleStyle = styled.article`
   }
 `;
 
-export { MainStyle, SubTitleStyle, MainSectionStyle, ArticleStyle };
+const StartButton = styled.button`
+  width: 10rem;
+  padding: 1rem 0;
+  margin: 2rem auto;
+  border: 1px solid #555;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #222;
+  }
+`;
+
+export { MainStyle, SubTitleStyle, MainSectionStyle, ArticleStyle, StartButton };
