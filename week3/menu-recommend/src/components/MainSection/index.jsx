@@ -1,6 +1,6 @@
-import SelectArticle from '../SelectArticle';
 import * as S from './style';
-import PersonalArticle from '../PersonalArticle';
+import PersonalArticle from './PersonalArticle';
+import SelectArticle from './SelectArticle';
 
 const MainSection = ({ selectOption, selectOptionHandler, startPick, startPickHandler }) => {
   return (

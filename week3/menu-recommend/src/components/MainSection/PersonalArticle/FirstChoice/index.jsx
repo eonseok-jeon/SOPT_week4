@@ -1,6 +1,6 @@
 import * as S from './style';
 
-const PersonalArticle = () => {
+const FirstChoice = () => {
   return (
     <>
       <S.SubTitleStyle>오늘은 어떤 종류가 먹고 싶어?</S.SubTitleStyle>
@@ -24,4 +24,4 @@ const PersonalArticle = () => {
   );
 };
 
-export default PersonalArticle;
+export default FirstChoice;

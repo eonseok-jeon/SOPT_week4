@@ -1,7 +1,7 @@
-import GlobalStyle from '@styles/GlobalStyle';
+import { useState } from 'react';
 import Header from '@components/Header';
 import MainSection from '@components/MainSection';
-import { useState } from 'react';
+import GlobalStyle from '@styles/GlobalStyle';
 
 export default function App() {
   const [selectOption, setSelectOption] = useState('');
