@@ -1,10 +1,11 @@
 import GlobalStyle from '@styles/GlobalStyle';
+import Header from '@components/Header';
 
 export default function App() {
   return (
     <>
       <GlobalStyle />
-      <p>123</p>
+      <Header />
     </>
   );
 }
