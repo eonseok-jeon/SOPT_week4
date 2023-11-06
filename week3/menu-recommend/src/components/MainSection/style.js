@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const MainStyle = styled.main`
   max-width: 120rem;
@@ -41,6 +41,7 @@ const ArticleStyle = styled.article`
   height: 30rem;
   border: 1px solid #555;
   border-radius: 1rem;
+  background-color: ${({ isclicked }) => (isclicked === 'true' ? 'red' : 'inherit')};
   transition: all 0.3s ease;
   cursor: pointer;
 
@@ -56,6 +57,7 @@ const StartButton = styled.button`
   border: 1px solid #555;
   border-radius: 1rem;
   transition: all 0.3s ease;
+  color: ${({ disabled }) => (disabled ? 'red' : 'blue')};
 
   &:hover {
     background-color: #222;
