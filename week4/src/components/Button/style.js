@@ -13,8 +13,12 @@ const ButtonLink = styled.a`
   transition: all 0.3s ease;
 
   &:hover {
-    color: #000;
-    background-color: #ddd;
+    /* color: #000; */
+    background-color: #444;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
   }
 `;
 

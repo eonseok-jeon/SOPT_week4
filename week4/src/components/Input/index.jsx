@@ -1,10 +1,10 @@
 import * as S from './style';
 
-const Input = ({ label, placeholder }) => {
+const Input = ({ label, placeholder, type }) => {
   return (
     <S.InputBox>
-      <label>{label}</label>
-      <S.InputCSS placeholder={placeholder} />
+      <S.LabelCSS>{label}</S.LabelCSS>
+      <S.InputCSS type={type} placeholder={placeholder} />
     </S.InputBox>
   );
 };

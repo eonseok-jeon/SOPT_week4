@@ -4,12 +4,21 @@ const InputBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  font-size: 1.6rem;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+`;
+
+const LabelCSS = styled.label`
+  width: 10rem;
 `;
 
 const InputCSS = styled.input`
-  width: 70%;
+  width: calc(100% - 10rem);
   padding: 0.5rem 1rem;
-  font-size: 1.6rem;
   border: 1px solid #ddd;
   border-radius: 0.4rem;
 
@@ -18,4 +27,4 @@ const InputCSS = styled.input`
   }
 `;
 
-export { InputBox, InputCSS };
+export { InputBox, LabelCSS, InputCSS };
