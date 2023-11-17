@@ -13,7 +13,9 @@ const MyPage = () => {
           <S.ProfileParagraph>닉네임: 터혀니</S.ProfileParagraph>
         </div>
       </S.ProfileBox>
-      <Button width="10rem">로그아웃</Button>
+      <Button width="10rem" to="/login">
+        로그아웃
+      </Button>
     </Card>
   );
 };

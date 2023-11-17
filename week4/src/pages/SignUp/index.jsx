@@ -16,7 +16,7 @@ const SignUp = () => {
         <Input label="PASSWORD CONFIRM" type="password" placeholder="비밀번호 한 번 더 입력해" />
         <Input label="NICKNAME" type="text" placeholder="닉네임 입력해" />
       </S.InputBox>
-      <Button>회원가입</Button>
+      <Button to="/login">회원가입</Button>
     </Card>
   );
 };

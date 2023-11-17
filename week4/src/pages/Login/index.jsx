@@ -12,8 +12,8 @@ const Login = () => {
         <Input label="PASSWORD" type="password" placeholder="비밀번호 입력해" />
       </S.InputBox>
       <div>
-        <Button>로그인</Button>
-        <Button>회원가입</Button>
+        <Button to="/mypage/2">로그인</Button>
+        <Button to="/signup">회원가입</Button>
       </div>
     </Card>
   );
