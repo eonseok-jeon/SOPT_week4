@@ -10,6 +10,7 @@ const SignUp = () => {
   const [enteredID, setEnteredID] = useState('');
   const [enteredPW, setEnteredPW] = useState('');
   const [enteredNickName, setEnteredNickName] = useState('');
+  const [buttonColor, setButtonColor] = useState('black');
 
   const router = useNavigate();
 
@@ -35,6 +36,25 @@ const SignUp = () => {
     }
   };
 
+  const duplicateHandler = async () => {
+    try {
+      const res = await reqAPI.get('/api/v1/members/check', {
+        params: {
+          username: enteredID,
+        },
+      });
+
+      if (!res.data.isExist) {
+        return setButtonColor('green');
+      }
+      if (!!res.data.isExist) {
+        return setButtonColor('red');
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <form onSubmit={submitHandler}>
       <Card>
@@ -47,9 +67,16 @@ const SignUp = () => {
               placeholder="아이디를 입력해"
               onChange={(e) => {
                 setEnteredID(e.target.value);
+                setButtonColor('black');
               }}
             />
-            <S.DuplicateCheckButton width="10rem">중복체크</S.DuplicateCheckButton>
+            <S.DuplicateCheckButton
+              width="10rem"
+              onClick={duplicateHandler}
+              buttonColor={buttonColor}
+            >
+              중복체크
+            </S.DuplicateCheckButton>
           </S.IdDuplicateCheckBox>
           <Input
             label="PASSWORD"

@@ -14,6 +14,7 @@ const DuplicateCheckButton = styled(ButtonLink)`
   padding: 0;
   margin-bottom: 1rem;
   font-size: 1.4rem;
+  background-color: ${({ buttonColor }) => buttonColor};
 `;
 
 export { InputBox, IdDuplicateCheckBox, DuplicateCheckButton };
