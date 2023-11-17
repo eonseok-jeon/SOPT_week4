@@ -11,6 +11,11 @@ const SignUp = () => {
   const [enteredPW, setEnteredPW] = useState('');
   const [enteredNickName, setEnteredNickName] = useState('');
   const [buttonColor, setButtonColor] = useState('black');
+  const isAble =
+    enteredID.trim().length !== 0 &&
+    enteredPW.trim().length !== 0 &&
+    enteredNickName.trim().length !== 0 &&
+    buttonColor === 'green';
 
   const router = useNavigate();
 
@@ -73,7 +78,7 @@ const SignUp = () => {
             <S.DuplicateCheckButton
               width="10rem"
               onClick={duplicateHandler}
-              buttonColor={buttonColor}
+              button_color={buttonColor}
             >
               중복체크
             </S.DuplicateCheckButton>
@@ -103,7 +108,7 @@ const SignUp = () => {
             }}
           />
         </S.InputBox>
-        <Button as="button" type="submit">
+        <Button as="button" type="submit" disabled={!isAble}>
           회원가입
         </Button>
       </Card>
