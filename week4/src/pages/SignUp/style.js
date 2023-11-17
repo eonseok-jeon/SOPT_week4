@@ -13,6 +13,7 @@ const IdDuplicateCheckBox = styled.div`
 const DuplicateCheckButton = styled(ButtonLink)`
   padding: 0;
   margin-bottom: 1rem;
+  font-size: 1.4rem;
 `;
 
 export { InputBox, IdDuplicateCheckBox, DuplicateCheckButton };
