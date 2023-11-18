@@ -9,12 +9,15 @@ import * as S from './style';
 const SignUp = () => {
   const [enteredID, setEnteredID] = useState('');
   const [enteredPW, setEnteredPW] = useState('');
+  const [confirmPW, setConfirmPW] = useState('');
   const [enteredNickName, setEnteredNickName] = useState('');
   const [buttonColor, setButtonColor] = useState('black');
+
   const isAble =
     enteredID.trim().length !== 0 &&
     enteredPW.trim().length !== 0 &&
     enteredNickName.trim().length !== 0 &&
+    enteredPW === confirmPW &&
     buttonColor === 'green';
 
   const router = useNavigate();
@@ -97,6 +100,9 @@ const SignUp = () => {
             type="password"
             placeholder="비밀번호 한 번 더 입력해"
             onKeyDown={signUpHandler}
+            onChange={(e) => {
+              setConfirmPW(e.target.value);
+            }}
           />
           <Input
             label="NICKNAME"
