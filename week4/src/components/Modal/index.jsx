@@ -5,8 +5,15 @@ const ModalOverlay = ({ children }) => {
   return <S.ModalBox>{children}</S.ModalBox>;
 };
 
-const Modal = () => {
-  return <>{ReactDOM.createPortal(<ModalOverlay />, document.getElementById('overlay'))}</>;
+const Modal = ({ children }) => {
+  return (
+    <>
+      {ReactDOM.createPortal(
+        <ModalOverlay children={children} />,
+        document.getElementById('overlay')
+      )}
+    </>
+  );
 };
 
 export default Modal;

@@ -6,6 +6,7 @@ const ModalBox = styled(CardBox)`
   bottom: 10rem;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 2;
 `;
 
 export { ModalBox };

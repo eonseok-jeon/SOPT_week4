@@ -5,6 +5,7 @@ import Button from '@components/Button';
 import Card from '@components/Card';
 import Input from '@components/Input';
 import * as S from './style';
+import useModal from '../../hooks/useModal';
 
 const SignUp = () => {
   const [enteredID, setEnteredID] = useState('');
@@ -34,7 +35,7 @@ const SignUp = () => {
 
       router('/login');
     } catch (e) {
-      console.error(e);
+      throw Error(e.response.data.message);
     }
   };
 
