@@ -64,12 +64,13 @@ const ButtonBox = styled.div`
 const NextButton = styled.button`
   padding: 1rem 2rem;
   margin-top: 2rem;
+  cursor: ${({ disabled }) => (disabled ? 'default' : 'cursor')};
   border: 1px solid #555;
   border-radius: 1rem;
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: #222;
+    background-color: ${({ disabled }) => (disabled ? 'transparent' : '#222')};
   }
 `;
 
