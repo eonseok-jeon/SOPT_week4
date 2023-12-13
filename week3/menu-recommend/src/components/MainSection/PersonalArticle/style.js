@@ -30,10 +30,11 @@ const ArticleStyle = styled.article`
   justify-content: center;
   width: 100%;
   height: 30rem;
+  cursor: pointer;
+  background-color: ${({ $isClicked }) => ($isClicked ? '#333' : 'transparent')};
   border: 1px solid #555;
   border-radius: 1rem;
   transition: all 0.3s ease;
-  cursor: pointer;
 
   &:hover {
     background-color: #222;

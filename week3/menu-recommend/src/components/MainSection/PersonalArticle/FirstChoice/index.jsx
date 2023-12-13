@@ -10,19 +10,19 @@ const FirstChoice = ({ selectOptionHandler, startPickHandler, nthChoiceHandler }
       <S.CountParagraph>1 / 3</S.CountParagraph>
       <S.MainSectionStyle>
         <S.ArticleStyle
-          isclicked={clickedOption === 1 ? 'true' : 'false'}
+          $isClicked={clickedOption === 1 ? true : false}
           onClick={() => clickedOptionHandler(1)}
         >
           <a href="#">한식</a>
         </S.ArticleStyle>
         <S.ArticleStyle
-          isclicked={clickedOption === 2 ? 'true' : 'false'}
+          $isClicked={clickedOption === 2 ? true : false}
           onClick={() => clickedOptionHandler(2)}
         >
           <a href="#">일식</a>
         </S.ArticleStyle>
         <S.ArticleStyle
-          isclicked={clickedOption === 3 ? 'true' : 'false'}
+          $isClicked={clickedOption === 3 ? true : false}
           onClick={() => clickedOptionHandler(3)}
         >
           <a href="#">중식</a>

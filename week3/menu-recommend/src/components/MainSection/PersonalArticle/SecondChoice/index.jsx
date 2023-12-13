@@ -10,19 +10,19 @@ const SecondChoice = ({ nthChoiceHandler }) => {
       <S.CountParagraph>2 / 3</S.CountParagraph>
       <S.MainSectionStyle>
         <S.ArticleStyle
-          isclicked={clickedOption === 1 ? 'true' : 'false'}
+          $isClicked={clickedOption === 1 ? true : false}
           onClick={() => clickedOptionHandler(1)}
         >
           <a href="#">밥</a>
         </S.ArticleStyle>
         <S.ArticleStyle
-          isclicked={clickedOption === 2 ? 'true' : 'false'}
+          $isClicked={clickedOption === 2 ? true : false}
           onClick={() => clickedOptionHandler(2)}
         >
           <a href="#">면</a>
         </S.ArticleStyle>
         <S.ArticleStyle
-          isclicked={clickedOption === 3 ? 'true' : 'false'}
+          $isClicked={clickedOption === 3 ? true : false}
           onClick={() => clickedOptionHandler(3)}
         >
           <a href="#">고기</a>
