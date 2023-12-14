@@ -1,7 +1,20 @@
 import { useEffect, useState } from 'react';
-import { DUMMY_DATA } from '../../../core/DUMMY_DATA';
-import * as S from '../PersonalArticle/style';
 import ResultArticle from '../ResultArticle';
+import styled, { keyframes } from 'styled-components';
+
+const sizeUp = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  
+  100% {
+    transform: scale(10);
+  }
+  `;
+
+const AnimationText = styled.p`
+  animation: ${sizeUp} 1s infinite linear;
+`;
 
 const RandomArticle = ({ startPickHandler }) => {
   const [count, setCount] = useState(3);
@@ -23,7 +36,7 @@ const RandomArticle = ({ startPickHandler }) => {
   }, [count]);
   return (
     <>
-      {count !== 0 && <p>{count}</p>}
+      {count !== 0 && <AnimationText>{count}</AnimationText>}
       {count === 0 && (
         <ResultArticle imgUrl={imgUrl} num={randomNum} startPickHandler={startPickHandler} />
       )}

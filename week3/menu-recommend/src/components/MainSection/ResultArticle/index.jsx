@@ -5,7 +5,7 @@ const ResultArticle = ({ imgUrl, num, startPickHandler }) => {
   return (
     <>
       <p>오늘의 추천음식은 바로!!</p>
-      <img src={imgUrl} />
+      <img src={imgUrl} width={400} height={300} />
       <p>{DUMMY_DATA[num - 1]}</p>
       <S.StartButton
         onClick={() => {
