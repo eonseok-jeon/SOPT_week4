@@ -3,27 +3,8 @@ import FirstChoice from './FirstChoice';
 import SecondChoice from './SecondChoice';
 import LastChoice from './LastChoice';
 import * as S from './style';
-
-const DUMMY_DATA = [
-  '맨밥',
-  '소고기국',
-  '비빔면',
-  '칼국수',
-  '수육',
-  '돼지국밥',
-  '초밥',
-  '미소된장국',
-  '야끼소바',
-  '라멘',
-  '규카츠',
-  '나베',
-  '볶음밥',
-  '중국식 계란국',
-  '볶음면',
-  '짬뽕',
-  '동파육',
-  '고기 들어간 팔보채',
-];
+import { DUMMY_DATA } from '../../../core/DUMMY_DATA';
+import ResultArticle from '../ResultArticle';
 
 const menuReducer = (state, action) => {
   switch (action.type) {
@@ -91,18 +72,7 @@ const PersonalArticle = ({ selectOptionHandler, startPickHandler }) => {
         />
       )}
       {menuState.nthChoice === 4 && (
-        <>
-          <p>오늘의 추천음식은 바로!!</p>
-          <img src={imgUrl} />
-          <p>{DUMMY_DATA[index]}</p>
-          <S.StartButton
-            onClick={() => {
-              startPickHandler(false);
-            }}
-          >
-            다시하기
-          </S.StartButton>
-        </>
+        <ResultArticle imgUrl={imgUrl} num={index + 1} startPickHandler={startPickHandler} />
       )}
     </>
   );

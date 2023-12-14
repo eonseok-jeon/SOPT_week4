@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const MainStyle = styled.main`
   max-width: 120rem;
@@ -39,11 +39,11 @@ const ArticleStyle = styled.article`
   justify-content: center;
   width: 100%;
   height: 30rem;
+  cursor: pointer;
+  background-color: ${({ $isClicked }) => ($isClicked === 'true' ? 'red' : 'inherit')};
   border: 1px solid #555;
   border-radius: 1rem;
-  background-color: ${({ isclicked }) => (isclicked === 'true' ? 'red' : 'inherit')};
   transition: all 0.3s ease;
-  cursor: pointer;
 
   &:hover {
     background-color: #222;
@@ -54,10 +54,10 @@ const StartButton = styled.button`
   width: 10rem;
   padding: 1rem 0;
   margin: 2rem auto;
+  color: ${({ disabled }) => (disabled ? 'red' : 'blue')};
   border: 1px solid #555;
   border-radius: 1rem;
   transition: all 0.3s ease;
-  color: ${({ disabled }) => (disabled ? 'red' : 'blue')};
 
   &:hover {
     background-color: #222;
