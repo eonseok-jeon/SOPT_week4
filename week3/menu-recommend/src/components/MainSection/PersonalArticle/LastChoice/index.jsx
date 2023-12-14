@@ -26,12 +26,19 @@ const LastChoice = ({ thirdChoice, dispatchHandler }) => {
       <S.ButtonBox>
         <S.NextButton
           onClick={() => {
-            nthChoiceHandler(2);
+            dispatchHandler('done', 2);
           }}
         >
           이전으로
         </S.NextButton>
-        <S.NextButton disabled={thirdChoice === 0}>결과보기</S.NextButton>
+        <S.NextButton
+          disabled={thirdChoice === 0}
+          onClick={() => {
+            dispatchHandler('done', 4);
+          }}
+        >
+          결과보기
+        </S.NextButton>
       </S.ButtonBox>
     </>
   );
