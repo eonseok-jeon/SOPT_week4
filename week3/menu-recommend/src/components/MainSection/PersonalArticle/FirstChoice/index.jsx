@@ -1,29 +1,32 @@
-import useSelect from '@hooks/useSelect';
 import * as S from '../style';
 
-const FirstChoice = ({ selectOptionHandler, startPickHandler, nthChoiceHandler }) => {
-  const { clickedOption, clickedOptionHandler } = useSelect();
-
+const FirstChoice = ({ firstChoice, selectOptionHandler, startPickHandler, dispatchHandler }) => {
   return (
     <>
       <S.SubTitleStyle>오늘은 어떤 종류가 먹고 싶어?</S.SubTitleStyle>
       <S.CountParagraph>1 / 3</S.CountParagraph>
       <S.MainSectionStyle>
         <S.ArticleStyle
-          $isClicked={clickedOption === 1 ? true : false}
-          onClick={() => clickedOptionHandler(1)}
+          $isClicked={firstChoice === 1 ? true : false}
+          onClick={() => {
+            dispatchHandler('first', 1);
+          }}
         >
           <a href="#">한식</a>
         </S.ArticleStyle>
         <S.ArticleStyle
-          $isClicked={clickedOption === 2 ? true : false}
-          onClick={() => clickedOptionHandler(2)}
+          $isClicked={firstChoice === 2 ? true : false}
+          onClick={() => {
+            dispatchHandler('first', 2);
+          }}
         >
           <a href="#">일식</a>
         </S.ArticleStyle>
         <S.ArticleStyle
-          $isClicked={clickedOption === 3 ? true : false}
-          onClick={() => clickedOptionHandler(3)}
+          $isClicked={firstChoice === 3 ? true : false}
+          onClick={() => {
+            dispatchHandler('first', 3);
+          }}
         >
           <a href="#">중식</a>
         </S.ArticleStyle>
@@ -38,9 +41,9 @@ const FirstChoice = ({ selectOptionHandler, startPickHandler, nthChoiceHandler }
           이전으로
         </S.NextButton>
         <S.NextButton
-          disabled={clickedOption === 0}
+          disabled={firstChoice === 0}
           onClick={() => {
-            nthChoiceHandler(2);
+            dispatchHandler('done', 2);
           }}
         >
           다음으로

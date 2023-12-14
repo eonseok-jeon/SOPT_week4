@@ -67,6 +67,7 @@ const NextButton = styled.button`
   cursor: ${({ disabled }) => (disabled ? 'default' : 'cursor')};
   border: 1px solid #555;
   border-radius: 1rem;
+  opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
   transition: all 0.3s ease;
 
   &:hover {
